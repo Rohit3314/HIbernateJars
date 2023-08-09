@@ -1,0 +1,168 @@
+package com.demo;
+
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Student")
+public class Student
+{
+    @Id
+	private int sid;
+	private String sname;
+	private int sage;
+	
+	
+	
+	public Student() {
+		super();
+		
+	}
+	public Student(int sid, String sname, int sage) {
+		super();
+		this.sid = sid;
+		this.sname = sname;
+		this.sage = sage;
+	}
+	public int getSid() {
+		return sid;
+	}
+	public void setSid(int sid) {
+		this.sid = sid;
+	}
+	public String getSname() {
+		return sname;
+	}
+	public void setSname(String sname) {
+		this.sname = sname;
+	}
+	public int getSage() {
+		return sage;
+	}
+	public void setSage(int sage) {
+		this.sage = sage;
+	}
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+package com.demo;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
+public class Fetchcolumn {
+
+	public static void main(String[] args) 
+	{
+		
+		
+		new Persistence();
+		EntityManagerFactory emf= Persistence.createEntityManagerFactory("Student");
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+		
+		 Query q = em.createQuery("select s.sname from Student s");
+		 @SuppressWarnings("unchecked")
+		 List<String> l1 = q.getResultList();
+		 System.out.println("Student List");
+		 for(String name1:l1)
+		 {
+	 	System.out.println(name1);
+	    	}
+		em.close();
+        emf.close();
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+
+
+  <persistence-unit name="Student">
+    <class>com.demo.Student</class>
+     <properties>
+        <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"></property>    
+        <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/hiberdemo"></property>  
+        <property name="hibernate.connection.username" value="root"></property>  
+        <property name="hibernate.connection.password" value="12345"></property>  
+        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"></property>  
+        <property name="hibernate.show_sql" value="true"></property>  
+        <property name="hibernate.format_sql" value="true"></property>  
+        <property name="hibernate.hbm2ddl.auto" value="update"></property>  
+     </properties>
+     </persistence-unit>
+     
+</persistence>     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
