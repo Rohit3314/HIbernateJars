@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM
+    "hibernate-mapping-3.0.dtd">
+  
+   <hibernate-mapping>    
+    
+  <class name="com.demo.Employee" table="empdetail">  
+    <id name="eid" column="eid">  
+     
+    </id>  
+            
+             
+    <property name="ename"></property>  
+    <property name="esalary"></property>  
+    <property name="ejob"></property>   
+            
+  </class>  
+            
+ </hibernate-mapping>  

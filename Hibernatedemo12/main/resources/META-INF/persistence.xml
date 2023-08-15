@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+
+
+  <persistence-unit name="Student">
+    <class>com.demo.Student</class>
+     <properties>
+        <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"></property>    
+        <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/criteriademo1"></property>  
+        <property name="hibernate.connection.username" value="root"></property>  
+        <property name="hibernate.connection.password" value="12345"></property>  
+        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"></property>  
+        <property name="hibernate.show_sql" value="true"></property>  
+        <property name="hibernate.format_sql" value="true"></property>  
+        <property name="hibernate.hbm2ddl.auto" value="update"></property>  
+     </properties>
+     </persistence-unit>
+     
+</persistence> 
